@@ -1,0 +1,157 @@
+CSS
+1.	How can you switch a css style when the screen size is below a certain size? 
+
+You can accomplish this natively with the help of CSS media queries. For example, the following code:
+
+.headerLogo h1 {
+     text-align: center;
+ }
+
+
+@media (max-width:700px){
+        .headerLogo h1 {
+            text-align:left;
+        }
+    }
+
+For screen sizes < 700px, the .headerLogo h1 element text will get aligned to the left, and it will get aligned to the center otherwise.
+
+2.	What is the benefit of using stylesheets instead of inline styles?
+The main benefit is that you are implementing separation of concerns in a more effective way, by separating styling and structure into different files.
+
+3.	Is there a way to manage CSS with variables and functions?
+Modern CSS now has variables. But you can implement CSS pre-processors like SASS or LESS to implement these features.
+
+
+
+4.	Review and update the following erroneous CSS:
+
+.button, input[type="submit"], button {
+   position: relative
+   display: inline-block;
+   padding-front: 0;
+   margin: 0;
+   border: none;
+   text-decoration: none;
+   text-align: center;
+   white-space: nowrap;
+   overflow: visible;
+   bgcolor: red;
+   text-transform: uppercase
+   font-color: #fZb034;
+   font-size: 18px;
+   font-family: 'FuturaBT-Book';
+   line-height. 20px;
+   height: 20px;
+   -webkit-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out
+}
+
+Solution: The fixed CSS goes as follows:
+
+.button, input[type="submit"], button {
+   position: relative;
+   display: inline-block;
+   margin: 0;
+   border: none;
+   text-decoration: none;
+   text-align: center;
+   white-space: nowrap;
+   overflow: visible;
+   text-transform: uppercase;
+   font-size: 18px;
+   font-family: 'FuturaBT-Book';
+   line-height: 20px;
+   height: 20px;
+   -webkit-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out
+}
+
+
+
+
+JavaScript
+
+
+1.	What’s the difference between the following three “car” approaches?
+function Car(){}
+var car = Car();
+var car = new Car();
+
+The first Car is just a function definition. The second one only invokes the Car() function without creating a new object. Only the last statement creates a car object.
+
+2.	Explain what AJAX is and it’s advantages/disadvantages.
+AJAX makes reference to a browser object capable of making http requests to a an HTTP server. Advantages: it is a proven technology that has been around for about 20 years now. Disadvantages: is not very convenient to use, because its API is somewhat cumbersome. Personally I have worked a lot with AJAX calls in the past.
+
+3.	Describe how event bubbling works in the context of clicking on the “Hello World” text:
+<body>
+   <div id=”container”>
+       <span id=”textContainer”>Hello World</span>
+   </div>
+</body>
+
+Whenever a certain event gets triggered in the SPAN element (for example, the user hovering over the text or clicking on the text) the event first trigger the event handlers attached to the SPAN element. Then, the elements goes up and triggers the event handlers attached to the DIV element with the id of “container”. Then the element goes up and triggers the event handlers attached to the BODY element…then the event goes up and stops once it reaches the WINDOW object at the top of the DOM tree.
+
+
+4.	Create a loop that iterates up to 100 while outputting "fizz" at multiples of 3, "buzz" at multiples of 5 and "fizzbuzz" at multiples of 3 and 5.
+
+for(let i = 1; i < 100; i++){
+    if(i % 3 === 0 ) {
+      	if (i % 5 === 0) {
+        		console.log("fizzbuzz");
+      	} else {
+        		console.log("fizz");
+      	}
+
+    } else if (i % 5 === 0) {
+      	console.log("buzz");
+    } else {
+      	console.log(i);
+    }
+  }
+
+5.	Please fix the following erroneous JavaScript code.
+/**
+* Returns the header element.
+*
+* @return {(object|null)} The JQuery header element or null if the element does not exist
+*/
+function getHeaderElement() {
+    // Get header element by its id.    
+   let header = $(“#myHeader”);
+
+    if (header === null || typeof header === “undefined”
+    ) {
+                        console.log(“header element does not exist!“))
+    }
+  
+    console.log(‘header element exists!”);
+                return header;
+            }
+
+Twig
+Create a basic login form twig template that can be used on both an admin and player site.
+Inputs
+username
+password,
+submit button
+ 
+Template Variables
+submitButtonHTML = ‘<input type=”submit” value=”Log In”/>’
+loginHeaderText = ‘Log In’
+isAdminLogin = true or false
+totalSiteLogins = ‘0.00’
+Criteria
+1. Display totalSiteLogins variable below the form formatted as an integer.
+    Ex: 2.00 should display as 2
+2. Display the loginHeaderText variable above form.
+3. If the template is being used on an admin site, display the text “ADMIN” prepended to
+   the loginHeaderText variable. This can be determined by the state of the isAdminLogin
+   variable.
+4. Use the submitButtonHTML variable to display the form submit button.
+5. The form does not have to be functional (no javascript or css necessary).
+
+
+Upon completing this challenge, please provide a link to a github repository containing your answers
+
+Note: If something is not clear, please make the necessary assumptions and document them as part of your responses.
